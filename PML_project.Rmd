@@ -85,7 +85,30 @@ answers <- c("B","A","B","A","A","E","D","B","A","A","B","C","B","A","E","E","A"
 ##Results and Cross-Validation
 The random forest model predicts these 20 results: "B","A","B","A","A","E","D","B","A","A","B","C","B","A","E","E","A","B","B","B".  
 
-The GBM model also predicts the exact same results. Given the two models give the same results I expect the out of sample error to be quite low. The **cross-validation** result from the random forest confusion matrix supports that expectation. The largest error shown is for classifying "D" and it is only 0.00746 - this roughly equates to one classification error in 134 samples.
+The GBM model also predicts the exact same results. Given the two models give the same results I expect the out of sample error to be quite low. The in-sample error from the random forest confusion matrix supports that expectation. The largest error shown is for classifying "D" and it is approximately 0.007 - this roughly equates to one classification error in 140 samples.  However, it is appropriate to also measure the out of sample error to obtain a less optimistic (or, more realistic) view of the limitations of the model. To do this, the training data set will be split into two parts - a new testing set will be created via random sampling, and the (reduced) training set will have those items removed. As the random forest model I use is very computationally intensive I am choosing to run only two cross-validation tests to conserve time.
+
+
+```{r, echo = TRUE, message=FALSE, error=FALSE, warning=FALSE}
+##out of sample cross validation
+set.seed(444) ## to ensure consistent selection of the test set
+newtest1 <- cleantrain[sample(dim(cleantrain)[1], size = 100),]
+newtrain1 <- cleantrain[-sample(dim(cleantrain)[1], size = 100),]
+
+rfmodFit1 <- randomForest(x = newtrain1[,-53], y = newtrain1[,53], xtest = newtest1[,-53], 
+                         ytest = newtest1[,53], importance = TRUE)
+
+set.seed(1001) ## to ensure consistent selection of the test set
+newtest2 <- cleantrain[sample(dim(cleantrain)[1], size = 100),]
+newtrain2 <- cleantrain[-sample(dim(cleantrain)[1], size = 100),]
+
+rfmodFit2 <- randomForest(x = newtrain2[,-53], y = newtrain2[,53], xtest = newtest2[,-53],
+                          ytest = newtest2[,53], importance = TRUE)
+
+rfmodFit1$confusion
+rfmodFit2$confusion
+```
+
+Both out of sample errors are similar to those found for the in-sample errors. As the data set is quite large, and the groupings of the category variables are quite distinct, it is likely that to see material out of sample error we would need to reduce the size of the training set rather dramatically.  
 
 ##Conclusion
-Both the Random Forest and GBM models predict exactly the same classifications for the testing set data. Those results were submitted to the Coursera website for validation. Given the low expected classification error, it is expected that at most only one of the results will be incorrect (though even one error should be unlikely). The final tally indeed was 100% accuracy. We would expect to see errors if a larger testing set were used.
+Both the Random Forest and GBM models predict exactly the same classifications for the testing set data. Those results were submitted to the Coursera website for validation. Given the low expected (in-sample and out-of-sample) classification error, it is expected that at most only one of the results will be incorrect (though even one error should be unlikely). The final tally indeed was 100% accuracy. We would expect to see some errors if a larger testing set were used.

@@ -58,58 +58,58 @@ importance_vector
 
 ```
 ##                      MeanDecreaseGini
-## roll_belt                  1267.74111
-## pitch_belt                  693.12484
-## yaw_belt                    939.27211
-## total_accel_belt            232.20237
-## gyros_belt_x                 96.24973
-## gyros_belt_y                104.64880
-## gyros_belt_z                305.17805
-## accel_belt_x                115.60598
-## accel_belt_y                119.36808
-## accel_belt_z                422.87383
-## magnet_belt_x               248.91804
-## magnet_belt_y               366.47437
-## magnet_belt_z               389.07780
-## roll_arm                    330.68151
-## pitch_arm                   182.51521
-## yaw_arm                     230.61046
-## total_accel_arm             100.21647
-## gyros_arm_x                 129.56205
-## gyros_arm_y                 135.38979
-## gyros_arm_z                  56.82930
-## accel_arm_x                 236.74633
-## accel_arm_y                 151.29424
-## accel_arm_z                 127.56870
-## magnet_arm_x                257.97861
-## magnet_arm_y                241.83432
-## magnet_arm_z                189.37076
-## roll_dumbbell               409.24906
-## pitch_dumbbell              173.25811
-## yaw_dumbbell                251.02629
-## total_accel_dumbbell        267.56374
-## gyros_dumbbell_x            120.67173
-## gyros_dumbbell_y            240.09872
-## gyros_dumbbell_z             84.92547
-## accel_dumbbell_x            252.12556
-## accel_dumbbell_y            413.64134
-## accel_dumbbell_z            333.36281
-## magnet_dumbbell_x           477.63964
-## magnet_dumbbell_y           661.57974
-## magnet_dumbbell_z           753.27508
-## roll_forearm                623.48620
-## pitch_forearm               761.50067
-## yaw_forearm                 174.41184
-## total_accel_forearm         105.13032
-## gyros_forearm_x              70.38335
-## gyros_forearm_y             123.32932
-## gyros_forearm_z              80.95114
-## accel_forearm_x             321.05672
-## accel_forearm_y             146.75451
-## accel_forearm_z             245.48882
-## magnet_forearm_x            233.77581
-## magnet_forearm_y            229.15041
-## magnet_forearm_z            287.16176
+## roll_belt                  1255.09605
+## pitch_belt                  707.39975
+## yaw_belt                    897.53407
+## total_accel_belt            225.80518
+## gyros_belt_x                 93.01541
+## gyros_belt_y                112.24621
+## gyros_belt_z                319.77889
+## accel_belt_x                111.56469
+## accel_belt_y                139.48117
+## accel_belt_z                419.62427
+## magnet_belt_x               248.22810
+## magnet_belt_y               368.37049
+## magnet_belt_z               408.73765
+## roll_arm                    317.61174
+## pitch_arm                   172.30878
+## yaw_arm                     250.88328
+## total_accel_arm             105.73173
+## gyros_arm_x                 133.65002
+## gyros_arm_y                 137.64830
+## gyros_arm_z                  55.63409
+## accel_arm_x                 227.89477
+## accel_arm_y                 152.14726
+## accel_arm_z                 125.76857
+## magnet_arm_x                260.08539
+## magnet_arm_y                212.03172
+## magnet_arm_z                195.12389
+## roll_dumbbell               412.73868
+## pitch_dumbbell              182.07477
+## yaw_dumbbell                247.22531
+## total_accel_dumbbell        255.98159
+## gyros_dumbbell_x            124.72560
+## gyros_dumbbell_y            245.81455
+## gyros_dumbbell_z             84.19384
+## accel_dumbbell_x            246.44343
+## accel_dumbbell_y            401.29250
+## accel_dumbbell_z            335.15180
+## magnet_dumbbell_x           474.47255
+## magnet_dumbbell_y           666.23623
+## magnet_dumbbell_z           753.11052
+## roll_forearm                618.55864
+## pitch_forearm               806.47674
+## yaw_forearm                 168.91655
+## total_accel_forearm         114.16966
+## gyros_forearm_x              74.42575
+## gyros_forearm_y             125.91359
+## gyros_forearm_z              81.91971
+## accel_forearm_x             320.36751
+## accel_forearm_y             145.01081
+## accel_forearm_z             247.64567
+## magnet_forearm_x            224.23383
+## magnet_forearm_y            230.33901
+## magnet_forearm_z            271.95946
 ```
   
 The variables "roll_belt" and "yaw_belt" provide the most explantory power to this model.  
@@ -123,11 +123,11 @@ rfmodFit$confusion
 
 ```
 ##      A    B    C    D    E  class.error
-## A 5577    3    0    0    0 0.0005376344
-## B    9 3785    3    0    0 0.0031603898
-## C    0   11 3410    1    0 0.0035067212
-## D    0    0   24 3190    2 0.0080845771
-## E    0    0    2    4 3601 0.0016634322
+## A 5579    1    0    0    0 0.0001792115
+## B   10 3784    3    0    0 0.0034237556
+## C    0   11 3409    2    0 0.0037989480
+## D    0    0   21 3193    2 0.0071517413
+## E    0    0    0    7 3600 0.0019406709
 ```
 
 ```r
@@ -137,25 +137,25 @@ rfmodFit$test$votes
 
 ```
 ##        A     B     C     D     E
-## 1  0.040 0.878 0.066 0.006 0.010
-## 2  0.942 0.040 0.012 0.004 0.002
-## 3  0.108 0.760 0.080 0.006 0.046
-## 4  0.966 0.004 0.016 0.012 0.002
-## 5  0.964 0.008 0.028 0.000 0.000
-## 6  0.008 0.072 0.082 0.024 0.814
-## 7  0.010 0.004 0.052 0.900 0.034
-## 8  0.064 0.760 0.068 0.082 0.026
-## 9  1.000 0.000 0.000 0.000 0.000
-## 10 0.988 0.008 0.002 0.002 0.000
-## 11 0.050 0.818 0.068 0.042 0.022
-## 12 0.014 0.048 0.892 0.012 0.034
-## 13 0.002 0.984 0.002 0.002 0.010
+## 1  0.046 0.830 0.092 0.024 0.008
+## 2  0.958 0.020 0.014 0.002 0.006
+## 3  0.114 0.744 0.082 0.010 0.050
+## 4  0.952 0.004 0.020 0.024 0.000
+## 5  0.972 0.006 0.016 0.002 0.004
+## 6  0.008 0.072 0.082 0.018 0.820
+## 7  0.014 0.006 0.060 0.912 0.008
+## 8  0.050 0.760 0.052 0.092 0.046
+## 9  0.998 0.002 0.000 0.000 0.000
+## 10 0.990 0.010 0.000 0.000 0.000
+## 11 0.048 0.820 0.072 0.038 0.022
+## 12 0.014 0.040 0.874 0.018 0.054
+## 13 0.000 0.994 0.002 0.004 0.000
 ## 14 1.000 0.000 0.000 0.000 0.000
-## 15 0.016 0.012 0.006 0.012 0.954
-## 16 0.016 0.038 0.004 0.010 0.932
-## 17 0.986 0.000 0.000 0.000 0.014
-## 18 0.034 0.880 0.016 0.060 0.010
-## 19 0.072 0.910 0.010 0.006 0.002
+## 15 0.006 0.014 0.020 0.016 0.944
+## 16 0.010 0.024 0.002 0.008 0.956
+## 17 0.984 0.000 0.000 0.000 0.016
+## 18 0.048 0.900 0.004 0.042 0.006
+## 19 0.066 0.908 0.012 0.010 0.004
 ## 20 0.000 1.000 0.000 0.000 0.000
 ## attr(,"class")
 ## [1] "matrix" "votes"
@@ -183,7 +183,52 @@ answers <- c("B","A","B","A","A","E","D","B","A","A","B","C","B","A","E","E","A"
 ##Results and Cross-Validation
 The random forest model predicts these 20 results: "B","A","B","A","A","E","D","B","A","A","B","C","B","A","E","E","A","B","B","B".  
 
-The GBM model also predicts the exact same results. Given the two models give the same results I expect the out of sample error to be quite low. The **cross-validation** result from the random forest confusion matrix supports that expectation. The largest error shown is for classifying "D" and it is only 0.00746 - this roughly equates to one classification error in 134 samples.
+The GBM model also predicts the exact same results. Given the two models give the same results I expect the out of sample error to be quite low. The in-sample error from the random forest confusion matrix supports that expectation. The largest error shown is for classifying "D" and it is approximately 0.007 - this roughly equates to one classification error in 140 samples.  However, it is appropriate to also measure the out of sample error to obtain a less optimistic (or, more realistic) view of the limitations of the model. To do this, the training data set will be split into two parts - a new testing set will be created via random sampling, and the (reduced) training set will have those items removed. As the random forest model I use is very computationally intensive I am choosing to run only two cross-validation tests to conserve time.
+
+
+
+```r
+##out of sample cross validation
+set.seed(444) ## to ensure consistent selection of the test set
+newtest1 <- cleantrain[sample(dim(cleantrain)[1], size = 100),]
+newtrain1 <- cleantrain[-sample(dim(cleantrain)[1], size = 100),]
+
+rfmodFit1 <- randomForest(x = newtrain1[,-53], y = newtrain1[,53], xtest = newtest1[,-53], 
+                         ytest = newtest1[,53], importance = TRUE)
+
+set.seed(1001) ## to ensure consistent selection of the test set
+newtest2 <- cleantrain[sample(dim(cleantrain)[1], size = 100),]
+newtrain2 <- cleantrain[-sample(dim(cleantrain)[1], size = 100),]
+
+rfmodFit2 <- randomForest(x = newtrain2[,-53], y = newtrain2[,53], xtest = newtest2[,-53],
+                          ytest = newtest2[,53], importance = TRUE)
+
+rfmodFit1$confusion
+```
+
+```
+##      A    B    C    D    E  class.error
+## A 5554    1    0    0    1 0.0003599712
+## B    8 3759    3    0    0 0.0029177719
+## C    0    9 3396    3    0 0.0035211268
+## D    0    0   19 3182    2 0.0065563534
+## E    0    0    2    3 3580 0.0013947001
+```
+
+```r
+rfmodFit2$confusion
+```
+
+```
+##      A    B    C    D    E class.error
+## A 5542    2    0    0    1 0.000541028
+## B   13 3766    4    0    0 0.004493788
+## C    0   13 3391    1    0 0.004111601
+## D    0    0   21 3179    2 0.007183011
+## E    0    0    1    3 3583 0.001115138
+```
+
+Both out of sample errors are similar to those found for the in-sample errors. As the data set is quite large, and the groupings of the category variables are quite distinct, it is likely that to see material out of sample error we would need to reduce the size of the training set rather dramatically.  
 
 ##Conclusion
-Both the Random Forest and GBM models predict exactly the same classifications for the testing set data. Those results were submitted to the Coursera website for validation. Given the low expected classification error, it is expected that at most only one of the results will be incorrect (though even one error should be unlikely). The final tally indeed was 100% accuracy. We would expect to see errors if a larger testing set were used.
+Both the Random Forest and GBM models predict exactly the same classifications for the testing set data. Those results were submitted to the Coursera website for validation. Given the low expected (in-sample and out-of-sample) classification error, it is expected that at most only one of the results will be incorrect (though even one error should be unlikely). The final tally indeed was 100% accuracy. We would expect to see some errors if a larger testing set were used.
